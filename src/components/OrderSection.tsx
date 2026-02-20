@@ -17,7 +17,7 @@ const platforms = [
     href: "https://www.seamless.com",
     logo: "/images/seamless-logo.png",
     bg: "#FFFFFF",
-    height: "h-16 md:h-20",
+    height: "h-10 md:h-14",
   },
   {
     label: "Grubhub",
