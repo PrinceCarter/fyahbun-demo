@@ -46,7 +46,7 @@ export async function GET() {
     const edges =
       user.edge_owner_to_timeline_media?.edges ?? [];
 
-    const posts: IgPost[] = edges
+    const rawPosts = edges
       .slice(0, 12)
       .map((edge: { node: Record<string, unknown> }) => {
         const node = edge.node;
@@ -67,7 +67,28 @@ export async function GET() {
           is_video: Boolean(node.is_video),
         };
       })
-      .filter((p: IgPost) => p.image_url && !p.is_video);
+      .filter((p: IgPost) => p.image_url && !p.is_video)
+      .slice(0, 8);
+
+    const posts = await Promise.all(
+      rawPosts.map(async (p: IgPost) => {
+        try {
+          const imgRes = await fetch(p.image_url, {
+            headers: {
+              "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
+              Referer: "https://www.instagram.com/",
+            },
+          });
+          if (!imgRes.ok) return p;
+          const buf = Buffer.from(await imgRes.arrayBuffer());
+          const b64 = buf.toString("base64");
+          const ct = imgRes.headers.get("content-type") || "image/jpeg";
+          return { ...p, image_url: `data:${ct};base64,${b64}` };
+        } catch {
+          return p;
+        }
+      })
+    );
 
     return NextResponse.json({ images: posts }, { status: 200 });
   } catch {

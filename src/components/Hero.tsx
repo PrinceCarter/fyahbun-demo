@@ -40,7 +40,7 @@ export function Hero() {
 
       <motion.div
         style={{ y: textY, opacity }}
-        className="relative z-10 max-w-6xl mx-auto px-4 md:px-8 pb-14 md:pb-20 w-full"
+        className="relative z-10 max-w-6xl mx-auto px-4 md:px-8 pb-28 md:pb-20 w-full"
       >
         <div className="max-w-3xl">
           <motion.h1

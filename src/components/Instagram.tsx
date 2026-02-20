@@ -38,7 +38,7 @@ export function Instagram() {
 
   const imageUrls =
     photos.length > 0
-      ? photos.map((p) => ({ url: `/api/instagram/image?url=${encodeURIComponent(p.image_url)}`, link: `https://www.instagram.com/p/${p.shortcode}/` }))
+      ? photos.map((p) => ({ url: p.image_url, link: `https://www.instagram.com/p/${p.shortcode}/` }))
       : FALLBACK_IMAGES.map((url) => ({ url, link: "https://www.instagram.com/fyahbuncreative/" }));
 
   const tilts = [-4, 3, -2, 4, -3, 2, -4, 3];
