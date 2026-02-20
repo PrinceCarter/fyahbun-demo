@@ -62,7 +62,7 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 1.2 }}
             className="text-xl md:text-2xl text-white/90 font-[Pacifico] mt-6 mb-8 max-w-xl leading-relaxed"
           >
-            Cause we make the best jerk chicken in town, that&apos;s why!
+            Cause we make the best jerk chicken in town!
           </motion.p>
 
           <motion.div
