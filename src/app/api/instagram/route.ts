@@ -1,5 +1,8 @@
 import { NextResponse } from "next/server";
 
+export const runtime = "edge";
+export const dynamic = "force-dynamic";
+
 const USERNAME = "fyahbuncreative";
 const BROWSER_UA =
   "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36";
@@ -7,37 +10,6 @@ const BROWSER_UA =
 interface IgPost {
   image_url: string;
   shortcode: string;
-}
-
-export const dynamic = "force-dynamic";
-
-async function tryProfilePage(): Promise<IgPost[]> {
-  const res = await fetch(`https://www.instagram.com/${USERNAME}/`, {
-    headers: {
-      "User-Agent": BROWSER_UA,
-      Accept: "text/html,application/xhtml+xml",
-      "Accept-Language": "en-US,en;q=0.9",
-    },
-    cache: "no-store",
-  });
-  if (!res.ok) return [];
-  const html = await res.text();
-
-  const posts: IgPost[] = [];
-  const shortcodeRegex = /"shortcode"\s*:\s*"([A-Za-z0-9_-]+)"/g;
-  const shortcodes = new Set<string>();
-  let match;
-  while ((match = shortcodeRegex.exec(html)) !== null) {
-    shortcodes.add(match[1]);
-  }
-
-  for (const code of Array.from(shortcodes).slice(0, 12)) {
-    posts.push({
-      image_url: `https://www.instagram.com/p/${code}/media/?size=m`,
-      shortcode: code,
-    });
-  }
-  return posts;
 }
 
 async function tryApiEndpoint(): Promise<IgPost[]> {
@@ -49,9 +21,11 @@ async function tryApiEndpoint(): Promise<IgPost[]> {
         "X-IG-App-ID": "936619743392459",
         Accept: "*/*",
         "Accept-Language": "en-US,en;q=0.9",
+        "Sec-Fetch-Site": "same-origin",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Dest": "empty",
         Referer: `https://www.instagram.com/${USERNAME}/`,
       },
-      cache: "no-store",
     },
   );
   if (!res.ok) return [];
@@ -68,37 +42,48 @@ async function tryApiEndpoint(): Promise<IgPost[]> {
     .filter((p: IgPost) => p.image_url);
 }
 
-async function inlineImages(posts: IgPost[]): Promise<IgPost[]> {
-  return Promise.all(
-    posts.slice(0, 8).map(async (p) => {
-      try {
-        const imgRes = await fetch(p.image_url, {
-          headers: { "User-Agent": BROWSER_UA, Referer: "https://www.instagram.com/" },
-          redirect: "follow",
-        });
-        if (!imgRes.ok) return p;
-        const buf = Buffer.from(await imgRes.arrayBuffer());
-        const ct = imgRes.headers.get("content-type") || "image/jpeg";
-        return { ...p, image_url: `data:${ct};base64,${buf.toString("base64")}` };
-      } catch {
-        return p;
-      }
-    }),
-  );
+async function tryProfilePage(): Promise<IgPost[]> {
+  const res = await fetch(`https://www.instagram.com/${USERNAME}/`, {
+    headers: {
+      "User-Agent": BROWSER_UA,
+      Accept: "text/html,application/xhtml+xml",
+      "Accept-Language": "en-US,en;q=0.9",
+      "Sec-Fetch-Site": "none",
+      "Sec-Fetch-Mode": "navigate",
+      "Sec-Fetch-Dest": "document",
+    },
+  });
+  if (!res.ok) return [];
+  const html = await res.text();
+
+  const shortcodeRegex = /"shortcode"\s*:\s*"([A-Za-z0-9_-]+)"/g;
+  const shortcodes = new Set<string>();
+  let match;
+  while ((match = shortcodeRegex.exec(html)) !== null) {
+    shortcodes.add(match[1]);
+  }
+
+  return Array.from(shortcodes)
+    .slice(0, 8)
+    .map((code) => ({
+      image_url: `https://www.instagram.com/p/${code}/media/?size=m`,
+      shortcode: code,
+    }));
 }
 
 export async function GET() {
   try {
     let posts = await tryApiEndpoint();
+
     if (posts.length === 0) {
       posts = await tryProfilePage();
     }
+
     if (posts.length === 0) {
       return NextResponse.json({ images: [] });
     }
-    const inlined = await inlineImages(posts);
-    const valid = inlined.filter((p) => p.image_url.startsWith("data:"));
-    return NextResponse.json({ images: valid.length > 0 ? valid : posts });
+
+    return NextResponse.json({ images: posts.slice(0, 8) });
   } catch {
     return NextResponse.json({ images: [] });
   }

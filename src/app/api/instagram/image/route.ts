@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
+export const runtime = "edge";
+
 export async function GET(req: NextRequest) {
   const url = req.nextUrl.searchParams.get("url");
   if (!url) {
@@ -13,6 +15,7 @@ export async function GET(req: NextRequest) {
           "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
         Referer: "https://www.instagram.com/",
       },
+      redirect: "follow",
     });
 
     if (!res.ok) {
@@ -20,12 +23,12 @@ export async function GET(req: NextRequest) {
     }
 
     const contentType = res.headers.get("content-type") || "image/jpeg";
-    const buffer = await res.arrayBuffer();
+    const body = res.body;
 
-    return new NextResponse(buffer, {
+    return new NextResponse(body, {
       headers: {
         "Content-Type": contentType,
-        "Cache-Control": "public, max-age=86400",
+        "Cache-Control": "public, max-age=86400, s-maxage=86400",
       },
     });
   } catch {
