@@ -4,14 +4,17 @@ import { Reveal } from "./Reveal";
 
 export function Catering() {
   return (
-    <section id="catering" className="relative min-h-[85vh] md:min-h-[80vh] overflow-hidden">
+    <section
+      id="catering"
+      className="relative min-h-[85vh] md:min-h-[80vh] overflow-hidden"
+    >
       <video
         autoPlay
         muted
         loop
         playsInline
         className="absolute inset-0 w-full h-full object-cover"
-        src="/videos/grilling.mp4"
+        src="/videos/catering.mp4"
       />
       <div className="absolute inset-0 bg-dark/60" />
 
@@ -19,8 +22,7 @@ export function Catering() {
         <div className="max-w-7xl w-full mx-auto px-6 pb-16 md:pb-24 pt-48">
           <Reveal>
             <h2 className="font-[Oswald] text-5xl md:text-7xl lg:text-8xl font-bold text-white leading-[0.95] uppercase mb-5 text-shadow-hero">
-              PERFECT FOOD FOR{" "}
-              <span className="text-fyah">ANY OCCASION</span>
+              PERFECT FOOD FOR <span className="text-fyah">ANY OCCASION</span>
             </h2>
           </Reveal>
           <Reveal delay={0.15}>
