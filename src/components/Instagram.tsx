@@ -65,15 +65,15 @@ export function Instagram() {
             </span>
           </Reveal>
           <Reveal delay={0.1}>
-            <h2 className="font-[Oswald] text-5xl md:text-7xl font-bold text-dark uppercase">
-              FOLLOW <br />
+            <h2 className="font-[Oswald] text-3xl sm:text-5xl md:text-7xl font-bold text-dark uppercase">
+              FOLLOW{" "}
               <a
                 href="https://www.instagram.com/fyahbuncreative/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-fyah hover:text-fyah-dark transition-colors"
               >
-                @FYAHBUNCREATIVE
+                @FYAHBUN
               </a>
             </h2>
           </Reveal>

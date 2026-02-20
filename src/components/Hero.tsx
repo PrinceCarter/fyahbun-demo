@@ -16,7 +16,7 @@ export function Hero() {
   return (
     <section
       ref={ref}
-      className="relative h-dvh flex items-end overflow-hidden bg-cream"
+      className="relative h-svh flex items-end overflow-hidden bg-cream"
     >
       <motion.div
         initial={{ scale: 0.6, borderRadius: "2rem", opacity: 0 }}
