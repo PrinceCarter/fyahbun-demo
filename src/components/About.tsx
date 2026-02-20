@@ -12,7 +12,7 @@ export function About() {
             <Reveal direction="right" className="hidden md:block shrink-0">
               <div className="w-28 h-28 lg:w-36 lg:h-36 rounded-full overflow-hidden border-4 border-fyah/20 shadow-xl -rotate-6">
                 <img
-                  src="https://images.unsplash.com/photo-1544025162-d76694265947?w=300&q=80"
+                  src="https://zimmysnook.ca/wp-content/uploads/2025/01/DSC_1315-e1738328453534.jpg"
                   alt="Jerk chicken grilling"
                   className="w-full h-full object-cover"
                 />
@@ -44,7 +44,7 @@ export function About() {
             <Reveal direction="left" className="hidden md:block shrink-0">
               <div className="w-28 h-28 lg:w-36 lg:h-36 rounded-full overflow-hidden border-4 border-gold/20 shadow-xl rotate-6">
                 <img
-                  src="https://images.unsplash.com/photo-1606491956689-2ea866880049?w=300&q=80"
+                  src="https://images.pexels.com/photos/374710/pexels-photo-374710.jpeg"
                   alt="Caribbean spices"
                   className="w-full h-full object-cover"
                 />

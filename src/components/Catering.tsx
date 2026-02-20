@@ -18,18 +18,19 @@ export function Catering() {
       />
       <div className="absolute inset-0 bg-dark/60" />
 
-      <div className="absolute inset-0 z-10 flex items-end justify-center">
-        <div className="max-w-7xl w-full mx-auto px-6 pb-16 md:pb-24 pt-48">
+      <div className="absolute inset-0 z-10 flex items-center justify-center">
+        <div className="max-w-7xl w-full mx-auto px-6">
           <Reveal>
             <h2 className="font-[Oswald] text-5xl md:text-7xl lg:text-8xl font-bold text-white leading-[0.95] uppercase mb-5 text-shadow-hero">
-              PERFECT FOOD FOR <span className="text-fyah">ANY OCCASION</span>
+              PERFECT FOOD FOR <br />{" "}
+              <span className="text-fyah">ANY OCCASION</span>
             </h2>
           </Reveal>
           <Reveal delay={0.15}>
             <p className="text-white/80 leading-relaxed mb-8 max-w-lg text-base md:text-lg">
-              Delicious meals made with care, using fresh, quality ingredients.
-              Perfect for parties, weddings, or any celebration — beautifully
-              crafted to impress and satisfy every guest
+              Office lunches, weddings, block parties, corporate events. Fresh
+              ingredients, bold flavors, and nuff food fi everybody. Wi bring di
+              fyah to your table.
             </p>
           </Reveal>
           <Reveal delay={0.3}>
