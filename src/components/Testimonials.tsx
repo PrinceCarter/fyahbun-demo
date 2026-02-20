@@ -72,8 +72,7 @@ export function Testimonials() {
         <div className="text-center">
           <Reveal>
             <h2 className="font-[Oswald] text-5xl md:text-7xl font-bold text-dark uppercase">
-              GOOD FOLKS THAT ALREADY LOVE
-              <br />
+              GOOD FOLKS THAT ALREADY LOVE{" "}
               <span className="text-fyah">FYAHBUN</span>
             </h2>
           </Reveal>

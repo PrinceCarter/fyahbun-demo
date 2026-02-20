@@ -53,7 +53,7 @@ export function Hero() {
             }}
             className="font-[Oswald] text-6xl md:text-7xl lg:text-8xl font-bold leading-[0.9] tracking-tight text-white text-shadow-hero"
           >
-            TASTE DI <span className="text-[#FF7A3D]">FYAH</span>
+            TASTE DI <br /> <span className="text-fyah">FYAH</span>
           </motion.h1>
 
           <motion.p

@@ -66,7 +66,7 @@ export function Instagram() {
           </Reveal>
           <Reveal delay={0.1}>
             <h2 className="font-[Oswald] text-5xl md:text-7xl font-bold text-dark uppercase">
-              FOLLOW{" "}
+              FOLLOW <br />
               <a
                 href="https://www.instagram.com/fyahbuncreative/"
                 target="_blank"
