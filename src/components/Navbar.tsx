@@ -117,16 +117,9 @@ export function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-dark/80 backdrop-blur-2xl flex flex-col items-center justify-center gap-6"
+            onClick={() => setMenuOpen(false)}
+            className="fixed inset-0 z-40 bg-dark/80 backdrop-blur-2xl flex flex-col items-center justify-center gap-6 cursor-pointer"
           >
-            <button
-              onClick={() => setMenuOpen(false)}
-              className="absolute top-6 right-6 w-10 h-10 flex items-center justify-center text-white text-2xl"
-              aria-label="Close menu"
-            >
-              &times;
-            </button>
-
             <span className="font-[Pacifico] text-white/80 text-xl mb-4">Jerk Kitchen</span>
 
             {allLinks.map((link, i) => (
