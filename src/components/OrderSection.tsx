@@ -5,9 +5,27 @@ import { Reveal } from "./Reveal";
 import { PhoneIcon } from "./Icons";
 
 const platforms = [
-  { label: "DoorDash", href: "https://www.doordash.com", logo: "/images/doordash-logo.png", bg: "#FFFFFF", height: "h-8 md:h-10" },
-  { label: "Seamless", href: "https://www.seamless.com", logo: "/images/seamless-logo.png", bg: "#FFFFFF", height: "h-16 md:h-20" },
-  { label: "Grubhub", href: "https://www.grubhub.com", logo: "/images/grubhub-logo.png", bg: "#FFFFFF", height: "h-10 md:h-12" },
+  {
+    label: "DoorDash",
+    href: "https://www.doordash.com",
+    logo: "/images/doordash-logo.png",
+    bg: "#FFFFFF",
+    height: "h-8 md:h-10",
+  },
+  {
+    label: "Seamless",
+    href: "https://www.seamless.com",
+    logo: "/images/seamless-logo.png",
+    bg: "#FFFFFF",
+    height: "h-16 md:h-20",
+  },
+  {
+    label: "Grubhub",
+    href: "https://www.grubhub.com",
+    logo: "/images/grubhub-logo.png",
+    bg: "#FFFFFF",
+    height: "h-10 md:h-12",
+  },
 ];
 
 export function OrderSection() {
@@ -16,12 +34,13 @@ export function OrderSection() {
       <div className="max-w-5xl mx-auto px-6">
         <Reveal>
           <h2 className="font-[Oswald] text-5xl md:text-7xl font-bold text-dark text-center mb-4 uppercase">
-            Ready Fi Nyam?
+            Ready Fi <span className="text-fyah">NYAM</span>?
           </h2>
         </Reveal>
         <Reveal delay={0.1}>
           <p className="text-dark/50 text-center text-lg mb-14 max-w-md mx-auto">
-            Order through your favourite platform or call us direct for the fastest service.
+            Order through your favourite platform or call us direct for the
+            fastest service.
           </p>
         </Reveal>
 
@@ -38,7 +57,9 @@ export function OrderSection() {
                 style={{ backgroundColor: p.bg }}
                 className="rounded-2xl p-6 flex flex-col items-center justify-center hover:shadow-xl transition-all duration-300 group relative overflow-hidden"
               >
-                <span className="text-dark/40 text-[10px] uppercase tracking-[0.2em] font-[Oswald] mb-2">Order Online</span>
+                <span className="text-dark/40 text-[10px] uppercase tracking-[0.2em] font-[Oswald] mb-2">
+                  Order Online
+                </span>
                 <img
                   src={p.logo}
                   alt={p.label}

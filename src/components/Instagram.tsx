@@ -29,7 +29,12 @@ export function Instagram() {
       .then((r) => r.json())
       .then((localPosts: { shortcode: string; file: string }[]) => {
         if (localPosts?.length > 0) {
-          setPhotos(localPosts.map((p) => ({ image_url: p.file, shortcode: p.shortcode })));
+          setPhotos(
+            localPosts.map((p) => ({
+              image_url: p.file,
+              shortcode: p.shortcode,
+            })),
+          );
         }
         setLoaded(true);
       })
@@ -38,8 +43,14 @@ export function Instagram() {
 
   const imageUrls =
     photos.length > 0
-      ? photos.map((p) => ({ url: p.image_url, link: `https://www.instagram.com/p/${p.shortcode}/` }))
-      : FALLBACK_IMAGES.map((url) => ({ url, link: "https://www.instagram.com/fyahbuncreative/" }));
+      ? photos.map((p) => ({
+          url: p.image_url,
+          link: `https://www.instagram.com/p/${p.shortcode}/`,
+        }))
+      : FALLBACK_IMAGES.map((url) => ({
+          url,
+          link: "https://www.instagram.com/fyahbuncreative/",
+        }));
 
   const tilts = [-4, 3, -2, 4, -3, 2, -4, 3];
   const doubled = [...imageUrls, ...imageUrls];
@@ -62,7 +73,7 @@ export function Instagram() {
                 rel="noopener noreferrer"
                 className="text-fyah hover:text-fyah-dark transition-colors"
               >
-                @FYAHBUN
+                @FYAHBUNCREATIVE
               </a>
             </h2>
           </Reveal>
@@ -74,7 +85,9 @@ export function Instagram() {
         </div>
       </div>
 
-      <div className={`overflow-hidden py-10 transition-opacity duration-500 ${loaded ? "opacity-100" : "opacity-0"}`}>
+      <div
+        className={`overflow-hidden py-10 transition-opacity duration-500 ${loaded ? "opacity-100" : "opacity-0"}`}
+      >
         <div className="animate-marquee-slow inline-flex gap-6 px-6 items-center">
           {doubled.map((img, i) => (
             <a

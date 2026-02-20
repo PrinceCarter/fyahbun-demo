@@ -40,7 +40,9 @@ function ReviewCard({ r }: { r: (typeof reviews)[number] }) {
     <div className="w-[260px] md:w-[280px] flex-shrink-0 bg-white border border-dark/5 rounded-2xl p-7 flex flex-col text-center">
       <div className="flex justify-center gap-0.5 mb-4">
         {[...Array(5)].map((_, j) => (
-          <span key={j} className="text-[#8B1A1A] text-sm">★</span>
+          <span key={j} className="text-[#8B1A1A] text-sm">
+            ★
+          </span>
         ))}
       </div>
       <h4 className="font-[Oswald] text-base font-bold text-dark uppercase tracking-wider mb-4">
@@ -70,8 +72,9 @@ export function Testimonials() {
         <div className="text-center">
           <Reveal>
             <h2 className="font-[Oswald] text-5xl md:text-7xl font-bold text-dark uppercase">
-              GOOD FOLKS THAT ALREADY{" "}
-              <span className="text-fyah">LOVE FYAHBUN</span>
+              GOOD FOLKS THAT ALREADY LOVE
+              <br />
+              <span className="text-fyah">FYAHBUN</span>
             </h2>
           </Reveal>
         </div>
