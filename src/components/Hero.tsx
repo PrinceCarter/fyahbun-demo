@@ -16,7 +16,7 @@ export function Hero() {
   return (
     <section
       ref={ref}
-      className="relative h-screen flex items-end overflow-hidden bg-cream"
+      className="relative h-dvh flex items-end overflow-hidden bg-cream"
     >
       <motion.div
         initial={{ scale: 0.6, borderRadius: "2rem", opacity: 0 }}
@@ -40,7 +40,7 @@ export function Hero() {
 
       <motion.div
         style={{ y: textY, opacity }}
-        className="relative z-10 max-w-6xl mx-auto px-4 md:px-8 pb-28 md:pb-20 w-full"
+        className="relative z-10 max-w-6xl mx-auto px-4 md:px-8 pb-14 md:pb-20 w-full"
       >
         <div className="max-w-3xl">
           <motion.h1
