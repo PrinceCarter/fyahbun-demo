@@ -25,7 +25,6 @@ export function Instagram() {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    // Load cached local posts first, then try live API
     fetch("/instagram/posts.json")
       .then((r) => r.json())
       .then((localPosts: { shortcode: string; file: string }[]) => {
@@ -35,26 +34,11 @@ export function Instagram() {
         setLoaded(true);
       })
       .catch(() => setLoaded(true));
-
-    // Also try live API — if it works, override with fresh data
-    fetch("/api/instagram")
-      .then((r) => r.json())
-      .then((data) => {
-        if (data.images?.length > 0) {
-          setPhotos(data.images);
-        }
-      })
-      .catch(() => {});
   }, []);
 
   const imageUrls =
     photos.length > 0
-      ? photos.map((p) => ({
-          url: p.image_url.startsWith("/instagram/") || p.image_url.startsWith("data:")
-            ? p.image_url
-            : `/api/instagram/image?url=${encodeURIComponent(p.image_url)}`,
-          link: `https://www.instagram.com/p/${p.shortcode}/`,
-        }))
+      ? photos.map((p) => ({ url: p.image_url, link: `https://www.instagram.com/p/${p.shortcode}/` }))
       : FALLBACK_IMAGES.map((url) => ({ url, link: "https://www.instagram.com/fyahbuncreative/" }));
 
   const tilts = [-4, 3, -2, 4, -3, 2, -4, 3];
