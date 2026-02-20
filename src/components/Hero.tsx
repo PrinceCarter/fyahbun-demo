@@ -60,7 +60,7 @@ export function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 1.2 }}
-            className="text-xl md:text-2xl text-white/90 font-[Pacifico] mt-6 mb-8 max-w-xl leading-relaxed"
+            className="text-2xl md:text-3xl text-white/90 font-[Pacifico] mt-6 mb-8 max-w-xs leading-relaxed"
           >
             Cause we make the best jerk chicken in town!
           </motion.p>
