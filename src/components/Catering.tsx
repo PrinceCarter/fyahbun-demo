@@ -22,15 +22,14 @@ export function Catering() {
         <div className="max-w-7xl w-full mx-auto px-6">
           <Reveal>
             <h2 className="font-[Oswald] text-5xl md:text-7xl lg:text-8xl font-bold text-white leading-[0.95] uppercase mb-5 text-shadow-hero">
-              PERFECT FOOD FOR <br />{" "}
-              <span className="text-fyah">ANY OCCASION</span>
+              WI BRING DI <span className="text-fyah">FYAH</span>
+              <br /> TO YOUR TABLE
             </h2>
           </Reveal>
           <Reveal delay={0.15}>
             <p className="text-white/80 leading-relaxed mb-8 max-w-lg text-base md:text-lg">
               Office lunches, weddings, block parties, corporate events. Fresh
-              ingredients, bold flavors, and nuff food fi everybody. Wi bring di
-              fyah to your table.
+              ingredients, bold flavors, and nuff food fi everybody.
             </p>
           </Reveal>
           <Reveal delay={0.3}>
