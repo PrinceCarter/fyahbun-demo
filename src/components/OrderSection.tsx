@@ -7,21 +7,21 @@ import { PhoneIcon } from "./Icons";
 const platforms = [
   {
     label: "DoorDash",
-    href: "https://www.doordash.com",
+    href: "https://www.doordash.com/store/fyahbun-creative-new-york-1257045/",
     logo: "/images/doordash-logo.png",
     bg: "#FFFFFF",
     height: "h-8 md:h-10",
   },
   {
     label: "Seamless",
-    href: "https://www.seamless.com",
+    href: "https://www.seamless.com/menu/fyahbun-creative-325-e-48th-st-new-york/1458459",
     logo: "/images/seamless-logo.png",
     bg: "#FFFFFF",
     height: "h-10 md:h-14",
   },
   {
     label: "Grubhub",
-    href: "https://www.grubhub.com",
+    href: "https://www.grubhub.com/restaurant/fyahbun-creative-325-e-48th-st-new-york/1458459",
     logo: "/images/grubhub-logo.png",
     bg: "#FFFFFF",
     height: "h-10 md:h-12",
