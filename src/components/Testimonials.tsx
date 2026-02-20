@@ -40,7 +40,7 @@ function ReviewCard({ r }: { r: (typeof reviews)[number] }) {
     <div className="w-[260px] md:w-[280px] flex-shrink-0 bg-white border border-dark/5 rounded-2xl p-7 flex flex-col text-center">
       <div className="flex justify-center gap-0.5 mb-4">
         {[...Array(5)].map((_, j) => (
-          <span key={j} className="text-[#8B1A1A] text-sm">
+          <span key={j} className="text-fyah text-sm">
             ★
           </span>
         ))}

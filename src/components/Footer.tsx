@@ -18,7 +18,7 @@ export function Footer() {
 
       <div className="relative z-10 glow-line" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-10 md:py-20">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-10 pb-6 md:pt-20 md:pb-8">
         {/* Brand + socials row on mobile */}
         <div className="flex items-center justify-between md:hidden mb-6">
           <div>
