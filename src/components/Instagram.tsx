@@ -73,13 +73,13 @@ export function Instagram() {
                 rel="noopener noreferrer"
                 className="text-fyah hover:text-fyah-dark transition-colors"
               >
-                @FYAHBUN
+                @FYAHBUNCREATIVE
               </a>
             </h2>
           </Reveal>
           <Reveal delay={0.2}>
             <p className="text-dark/40 mt-4 max-w-lg mx-auto font-[Pacifico] text-base">
-              Keep it irie. Tag us @fyahbun
+              Keep it irie. Tag us @fyahbuncreative
             </p>
           </Reveal>
         </div>
