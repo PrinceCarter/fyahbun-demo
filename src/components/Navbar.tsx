@@ -17,6 +17,7 @@ export function Navbar() {
   const textColor = useTransform(progress, [0, 1], ["rgba(255,255,255,0.85)", "rgba(30,30,30,0.7)"]);
   const logoColor = useTransform(progress, [0, 1], ["rgba(255,255,255,1)", "rgba(30,30,30,1)"]);
   const hamburgerColor = useTransform(progress, [0, 1], ["rgba(255,255,255,1)", "rgba(30,30,30,1)"]);
+  const subtitleColor = useTransform(progress, [0, 1], ["rgba(255,255,255,0.7)", "rgba(34,120,69,0.8)"]);
   const shadowOpacity = useTransform(progress, [0, 1], [0.05, 0.15]);
   const shadow = useMotionTemplate`0 10px 40px rgba(0,0,0,${shadowOpacity})`;
 
@@ -71,9 +72,9 @@ export function Navbar() {
                   <span className="text-gold">FYAH</span>
                   <motion.span style={{ color: logoColor }}>BUN</motion.span>
                 </span>
-                <span className="font-[Pacifico] text-[10px] md:text-xs text-green/80 -mt-0.5">
+                <motion.span style={{ color: subtitleColor }} className="font-[Pacifico] text-[10px] md:text-xs -mt-0.5">
                   Jerk Kitchen
-                </span>
+                </motion.span>
               </a>
 
               <div className="hidden lg:flex items-center gap-6">
