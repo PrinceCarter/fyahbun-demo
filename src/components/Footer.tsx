@@ -21,14 +21,14 @@ export function Footer() {
       <div className="relative z-10 max-w-7xl mx-auto px-6 pt-10 pb-6 md:pt-20 md:pb-8">
         {/* Brand + socials row on mobile */}
         <div className="flex items-center justify-between md:hidden mb-6">
-          <div>
+          <div className="flex flex-col items-center">
             <span className="font-[Oswald] text-2xl font-bold tracking-wider">
               <span className="text-gold">FYAH</span>
               <span className="text-white">BUN</span>
             </span>
-            <p className="font-[Pacifico] text-[10px] text-green/60 -mt-0.5">
+            <span className="font-[Pacifico] text-[10px] text-green/70 -mt-0.5">
               Jerk Kitchen
-            </p>
+            </span>
           </div>
           <div className="flex gap-2">
             <a
@@ -58,14 +58,14 @@ export function Footer() {
           {/* Brand column — desktop only */}
           <div className="hidden md:block md:col-span-1">
             <Reveal>
-              <div className="mb-6">
+              <div className="mb-6 inline-flex flex-col items-center">
                 <span className="font-[Oswald] text-3xl font-bold tracking-wider">
                   <span className="text-gold">FYAH</span>
                   <span className="text-white">BUN</span>
                 </span>
-                <p className="font-[Pacifico] text-xs text-green/60 mt-0.5">
+                <span className="font-[Pacifico] text-xs text-green/70 -mt-0.5">
                   Jerk Kitchen
-                </p>
+                </span>
               </div>
               <p className="text-white/40 leading-relaxed text-sm">
                 Modern Jamaican food with authentic flavors. Crafted with care.
